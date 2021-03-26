@@ -1,0 +1,324 @@
+
+<?php $session = new Zend_Session_Namespace("current_session"); 
+   
+        $instance = new Application_Model_SeasonPanelModel();
+        $id = $session->id;
+        $wh ="id";
+        $table = "usuario";
+        $usuarios = $instance->GetSpecific($table,$wh,$id);
+
+        $rol = $usuarios[0]['fkroles'];
+        $wh = "id";
+        $table = "roles";
+        $rol_name = $instance->GetSpecific($table,$wh,$rol);
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="shortcut icon" href="/img/gp.png"/>
+    <title>GPS Constructivos</title>   
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/materialize.min.css">
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/js/chart/dist/Chart.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    
+    <script type="text/javascript" src="/js/jquery.v3.js"></script>
+    <script type="text/javascript" src="/js/chart/Chart.min.js"></script>
+    <script src ="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="/js/materialize.js"></script>
+    <!-- <script type="text/javascript" src="/js/materialize.min.js"></script> -->
+    <script src="/js/select2.min.js"></script>
+    <link href="/css/lightbox.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <script src="//cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.5.9/adapters/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
+    <script src="/ckeditor/ckeditor.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"> </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+
+<style type="text/css">
+body{
+    background-color: white;
+}
+
+header, main, footer {
+  padding-left: 300px; }
+
+nav .bread {
+  /*background-color: #B11C1C;*/
+  padding-left: 20px; }
+
+nav.top-nav h1.header {
+  margin: 0;
+  padding-top: 22px; }
+
+.sidenav{
+    height: calc(100% + 0px);
+}
+.sidenav li.active {
+  background-color: #cccccc;
+  color: #fff; }
+
+.sidenav li.active a, .sidenav li.active a i {
+  color: #fff; }
+
+nav.top-nav {
+  height: 70px; }
+
+table.striped > tbody > tr:nth-child(2n+1) {
+  background-color: rgba(234, 234, 234, 0.7); }
+
+a.sidenav-trigger.top-nav {
+  position: absolute;
+  text-align: center;
+  height: 48px;
+  width: 48px;
+  top: 5px;
+  float: none;
+  margin-left: 1.5rem;
+  color: #fff;
+  font-size: 36px;
+  z-index: 2;
+  left: 0; 
+}
+
+
+.img-responsive{ max-width: 100%; }
+.img-240{ width:120px; }
+
+@media only screen and (max-width: 992px){header,main,footer{padding-left:0}}
+
+</style>
+
+<script type="text/javascript">
+        
+        $(document).ready(function(){
+            $('.sidenav').sidenav();
+        });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.dropdown-trigger');
+            var instances = M.Dropdown.init(elems, options);
+            var sidenav = document.querySelectorAll('.sidenav');
+            var snIns = M.Sidenav.init(sidenav);            
+        });
+
+        $(window).on("load",function(){
+            $(".fade-screen").delay(700).fadeOut(400);
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+             var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, { });
+        });         
+</script>
+
+    <body>
+
+<body>
+    <style type="text/css">
+        .active-menu{background-color: rgba(0,0,0,0.05);}
+        .p20{ padding:20px;}
+        .text-right{ text-align: right; }
+        .text-left{ text-align: left; }
+        .text-center{ text-align: center; }
+        .inner-padding{ padding-top: 30px; }
+    </style>
+    <header>    
+        <nav class="top-nav indigo darken-3">
+            <div class="row">
+                <div class="col m12 s12 text-right">
+                    <h2 style="color:white;"><?php echo $rol_name[0]['nombre'];?> </h2>
+                </div>
+            </div>
+
+        </nav>
+
+<?php 
+
+    $actual_link = "$_SERVER[REQUEST_URI]";
+    $filename = substr(strrchr($actual_link, "/"), 1);
+
+
+    function getUrl($nameBtn,$urlname){
+        if($nameBtn == 1 && $urlname == null){ return "active"; }
+        return ($nameBtn == $urlname)?"active":"";
+
+    }
+
+    function getUsuarios($actual_link){
+        $actual_link = "$_SERVER[REQUEST_URI]";
+        $filename = substr(strrchr($actual_link, "/"), 1);
+        $name = strstr($actual_link, '?', true);
+        $urlname="/panel/usuariodetail/id/".$filename."";
+        if($actual_link == $urlname){ return "active"; }
+
+        $urledit = "/panel/usuariosedit/id/".$filename."";
+        if($actual_link == $urledit){ return "active"; }
+
+        $urlrol = "/panel/userrol";
+        if($actual_link == $urlrol){ return "active"; }
+
+        $namebus = substr(strrchr($actual_link, "="), 1);
+        $searchname="/panel/searchusuarios?nombre=".$namebus."";
+        if($actual_link == $searchname){ return "active"; }
+
+        $getpag="/panel/usuarios?pagina=".$namebus."";
+        if($actual_link == $getpag){ return "active"; }
+
+        $name = strstr($filename, '?', true);
+        $getsearch = "/panel/searchusuarios/nombre/".$name."?pagina=".$namebus."";
+        if($actual_link == $getsearch){ return "active"; }
+    }
+
+?>
+
+        <div class="container">
+            <a href="#" data-target="slide-out" class="top-nav sidenav-trigger full hide-on-large-only"><i class="material-icons">menu</i></a>
+        </div>
+        <ul id="slide-out" class="sidenav sidenav-fixed">
+            <li class="logo text-center center" style="margin-bottom: 40px; margin-top: 20px;">
+                <a href="/panel">
+                    <img src="/img/logo-2.png" style="width: 240px;">
+                </a>
+            </li>
+            <li class="bold">
+                <a href="/index/logout" style="color:red;">Cerrar Sesion <i class="material-icons" style="color:red;">highlight_off</i></a>
+            </li>
+                <li class="bold <?php echo getUrl('/panel',$actual_link);?>">
+                    <a href="/panel">Dashboard <i class="material-icons">extension</i></a>
+                </li>
+
+            <?php if ($usuarios[0]['fkroles'] == 1) { ?>
+                <li class="bold <?php echo getUrl('/panel/usuarios',$actual_link); echo getUsuarios($actual_link);?>">
+                    <a href="/panel/usuarios">Usuarios <i class="material-icons">person</i></a>
+                </li>
+
+            <?php } ?>
+
+
+        </ul>                  
+
+</header>
+
+<main>
+    <nav class="">
+        <div class="row nav-wrapper bread green lighten-1" style="width: 101%">
+
+        </div>      
+    </nav>  
+    <div class="container-fluid">         
+        <div class="row">
+            <div class="col m12 s12">
+                <div class="row">
+                    <?php echo $this->layout()->content; ?>
+                </div>
+            </div>
+        </div>
+    </div>      
+</main>
+
+<meta name="__token" content="{!! csrf_token() !!}" />  
+<script type="text/javascript" src="/js/script.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+
+$('.dropdown-trigger').dropdown();
+
+    function destroyIt(formulario){
+        swal({
+            title: "Borrar registro",
+            text: "¿Deseas eliminar el elemento seleccionado?\nEsta acción ya no se puede deshacer",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                /*
+                swal("Poof! Your imaginary file has been deleted!", {
+                    icon: "success",
+                });
+                */
+                document.getElementById(formulario).submit();   
+            } else {
+                //swal("Se ha cancelado la elimininación");
+            }
+        });
+
+    }
+    
+    function destroyImages(){
+
+
+        var atLeastOneIsChecked = $('input[name="checkImg[]"]:checked').length;
+        var ArryCheck = $('input[name="checkImg[]"]:checked');
+        if(atLeastOneIsChecked > 0 ){
+
+        swal({
+            title: "Borrar imágenes",
+            text: "¿Deseas eliminar los elementos seleccionado(s)?\nEsta acción ya no se puede deshacer",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                /*
+                swal("Poof! Your imaginary file has been deleted!", {
+                    icon: "success",
+                });
+                */
+                var dataArray = [];
+                ArryCheck.each(function(index, element){
+                    //console.log(element);
+                    dataArray[index] = $(element).data('id');
+                    console.log($(element).data('id'));
+                });
+
+                $.post( "/panel/vehiculos/eraseimages", { 'items[]': dataArray })
+                    .done(function( data ) {
+                        console.log(data);
+                        window.location.reload();
+                });
+
+
+            } else {
+                //swal("Se ha cancelado la elimininación");
+            }
+        });         
+
+        } else {
+
+        swal({
+            title: "",
+            text: "No has seleccionado ninguna imagen",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        });
+
+        }
+
+        return false;
+
+    }
+
+</script>
+</body>
+    </body>
+    </html>
