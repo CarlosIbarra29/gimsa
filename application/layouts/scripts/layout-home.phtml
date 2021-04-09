@@ -4,12 +4,12 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="shortcut icon" sizes="196x196" href="/img/gp.png" />   
+	<link rel="shortcut icon" sizes="196x196" href="/img/min-gs.jpg" />   
     <link rel="apple-touch-icon" href="/img/gp_48.png">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/gp_144.png">
     <meta name="apple-mobile-web-app-capable" content="yes" />
      <meta name="mobile-web-app-capable" content="yes">
-	<title>GIIMSA</title>
+	<title>Giimsa | Servicios de Plantas de Emergencia</title>
 	<!-- <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" > -->
 	<link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">	
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
@@ -27,25 +27,32 @@
 	<script type="text/javascript" src="/js/bootstrap-datetimepicker.js"></script>
 	<script type="text/javascript" src="/js/materialize.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
-	
+	<script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+
 </head>
 <body>
 <!-- NAVBAR -->
+
+
 
 <!-- NAVBAR -->
 <style type="text/css">
 	nav{
 		background-color: white;
+		/*opacity: .9;*/
 		color:black;
+		/*position: fixed;*/
 	}
 </style>
 
 <nav class="nav-extended">
     <div class="nav-wrapper">
-      <a href="/home" class="brand-logo"><img src="/img/logo-2.png" width="195" height="54"></a>
+      <a href="/home" style="font-size: 0.0rem" class="brand-logo"><img src="/img/logo2.png" width="190" height="50"></a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger" style="color: black;"><i class="material-icons prefix">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a class="nav-link" href="/home/login"><h5 style="color: black">Iniciar Sesión</h5></a></li>
+        <li><a style="padding: 0em 2em;" class="nav-link" href="/home/login">
+        	<lord-icon src="https://cdn.lordicon.com/dxjqoygy.json" trigger="loop" colors="primary:#121331,secondary:#1b1091" style="width:40px;height:40px"></lord-icon>
+        </a></li>
 			<?php if ($session->id) { ?>
 			<li class="nav-item dropdown ">
 				<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><h5 style="color: black">Perfil</h5> <span class="caret"></span></a>
@@ -57,9 +64,9 @@
       </ul>
     </div>
   </nav>
-
+<!-- <i style="color: gray;" class="material-icons prefix">account_circle</i> -->
   <ul class="sidenav" id="mobile-demo">
-    <li><a class="nav-link" href="/home/login"><h5 style="color: black">Iniciar Sesión</h5></a></li>
+    <li><a class="nav-link" href="/home/login"><lord-icon src="https://cdn.lordicon.com/dxjqoygy.json" trigger="loop" colors="primary:#121331,secondary:#1b1091" style="width:40px;height:40px"></lord-icon><span style="font-size:20px; color: rgb(74,79,84); letter-spacing: 0.1em; font-weight: bold;">Iniciar Sesión</span></a></li>
 			<?php if ($session->id) { ?>
 			<li class="nav-item dropdown ">
 				<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><h5 style="color: black">Perfil</h5> <span class="caret"></span></a>
@@ -89,6 +96,7 @@
 	}
 ?>
 <style type="text/css">
+
 	.alert {
 		padding: 15px;
 		margin-bottom: 20px;

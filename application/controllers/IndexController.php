@@ -41,9 +41,12 @@ class IndexController extends Zend_Controller_Action{
                     
                 }
             }else{
+
+                $urlq = "/home/loginerror";
+                $this->redirect($urlq);
                 
-                echo "No existe el usuario regresa e ingresa un usuario registrado";
-                print "<br><a href=\"/home/login\">Regresar</a>";
+                // echo "No existe el usuario regresa e ingresa un usuario registrado";
+                // print "<br><a href=\"/home/login\">Regresar</a>";
             }
             
         }else{

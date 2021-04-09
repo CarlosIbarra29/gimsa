@@ -122,6 +122,10 @@ class HomeController extends Zend_Controller_Action{
     	
     }//loginAction
 
+    public function loginerrorAction(){
+        
+    }//loginAction
+
     public function successAction(){
         
     }//SUCCESS ACTION
