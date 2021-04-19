@@ -23,13 +23,13 @@ class CotizacionController extends Zend_Controller_Action{
     }
 
     public function crearcotizacionAction(){
-        $table="gim_subestaciones";
+        $table="GIM_SUBESTACIONES";
         $this->view->subestaciones = $this->_season->GetAll($table);
 
-        $table="gim_subestaciones_alcances";
+        $table="GIM_ALCANCES";
         $this->view->subestaciones_alcances = $this->_season->GetAll($table);
 
-        $table="gim_pruebas";
+        $table="GIM_PRUEBAS";
         $this->view->pruebas = $this->_season->GetAll($table);
 
     }//END INDEX
