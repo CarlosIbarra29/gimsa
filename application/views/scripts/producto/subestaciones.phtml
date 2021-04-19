@@ -9,11 +9,95 @@
             <div class="box">
  
                 <div class="box-header with-border">
- 
-                    <h3 class="box-title">SUB ESTACIONES</h3>
- 
-                    <div class="pull-right">
- 
+
+                    <div class="row">
+
+                        <div class="col s12 m12"  style="margin-top: 20px;">
+
+                            <div class="card">
+
+                                <div class="card-content">
+
+                                    <div class="row">
+
+                                        <div class="col m12 s12 text-center">
+
+                                          <span class="title_view"><?php print $this->aData[0]['CATALOGO_NOMBRE']; ?></span>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row" style="margin-top: 25px;">
+
+                                        <div class="col m3 s6 text-center"> 
+
+                                            <div class="chip">
+
+                                                <img src="/img/correct.png">
+
+                                                Subestaciones
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col m3 s6 text-center"> 
+
+                                            <a href="/alcances/index?tpo=<?php print $_GET['tpo'] ?>">
+
+                                                <div class="chip">
+
+                                                    <img src="/img/gris.jpg">
+
+                                                    Alcances
+
+                                                </div>
+
+                                            </a>
+
+                                        </div>
+
+                                        <div class="col m3 s6 text-center"> 
+
+                                            <a href="/subestacion/pruebassubestacion">
+
+                                                <div class="chip">
+
+                                                    <img src="/img/gris.jpg">
+
+                                                    Pruebas
+
+                                                </div>
+
+                                            </a>
+
+                                        </div>
+
+                                        <div class="col m3 s6 text-center"> 
+
+                                            <a href="/subestacion/seccionessubestacion"> 
+
+                                                <div class="chip">
+
+                                                    <img src="/img/gris.jpg">
+
+                                                    Secciones
+
+                                                </div>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
                     </div>
 
                     <div class="box-body">
@@ -64,13 +148,13 @@
                     
                                             <td>
 
-                                            	<a href="/producto/upgetinfo?catId=<?php echo $v["ID_SUBESTACION"] ?>"><i class="fa fa-1x fa-edit"></i></a>
+                                            	<a href="/producto/upgetinfo?catId=<?php echo $v["ID_SUBESTACION"] ?>"><i class="fa fa-2x fa-edit"></i></a>
 
                                             </td>
 
                                             <td>
 
-                                            	<a class="delete" href="/producto/subestaciones/?catId=<?php echo $v["ID_SUBESTACION"]; ?>&op=del" ><span class="warning"><i class="fa fa-1x fa-trash" style="color: red"></i></span></a>
+                                            	<a class="delete" href="/producto/subestaciones/?catId=<?php echo $v["ID_SUBESTACION"]; ?>&op=del" ><span class="warning"><i class="fa fa-2x fa-trash" style="color: red"></i></span></a>
 
                                             </td>
                                         </tr>   

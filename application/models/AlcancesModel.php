@@ -2,7 +2,7 @@
 
 class Application_Model_AlcancesModel extends Zend_Db_Table_Abstract{
 
-	public function GIM_ALCANCES_ALL(){  
+	public function GIM_ALCANCES_ALL( $idAlcance ){  
     
         try{
     
@@ -14,7 +14,9 @@ class Application_Model_AlcancesModel extends Zend_Db_Table_Abstract{
 
                     JOIN GIM_CATALOGO_SERVICIOS_TIPO B ON A.ID_TIPO = B.ID_TIPO
 
-                    JOIN GIM_CATALOGO_ESTATUS C ON A.ACTIVO = C.ID_ESTATUS;";
+                    JOIN GIM_CATALOGO_ESTATUS C ON A.ACTIVO = C.ID_ESTATUS
+
+                    WHERE A.ID_TIPO = '$idAlcance';";
     
             $qry = $db->query( $sql );
     
