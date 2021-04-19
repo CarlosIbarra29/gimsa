@@ -25,6 +25,7 @@ class Application_Model_GpsUserModel extends Zend_Db_Table_Abstract{
             	'am'=>$post['ama'],
             	'telefono'=>$post['phone'],
             	'correo'=>$post['mail'],
+                'passw_text'=>$post["pword"],
             	'passw'=>$encri); 
             $res = $db->insert($table, $datasave);
             $db->closeConnection();               

@@ -14,11 +14,9 @@
 
                 <div class="box-body">
 
-                    <form role="form" method="POST" action="/catalogo/getinfo" id="FormData"  enctype="multipart/form-data">
+                    <form role="form" method="POST" action="/producto/getinfo" id="FormData"  enctype="multipart/form-data">
 
                         <input type="hidden" name="optReg" value="set">
-
-                        <input type="hidden" id="catId" name="catId" value="<?php echo $this->catId; ?>">
 
                         <div class="row">
 
@@ -38,29 +36,13 @@
 
                                                     <option value="">Seleccione una opcion...</option>
 
-                                                    <?php foreach ( $this->aData as $key => $value): ?>
+                                                    <?php foreach ( $this->aDataCbo as $key => $value): ?>
 
                                                         <option value="<?php print $value['TIPO'] ?>"><?php print $value['CBO_DESCRIPCION'] ?></option>
                                                         
                                                     <?php endforeach; ?>                               
 
                                                 </select>
-
-                                            </div>
-
-                                        </div>
-
-                                        <div class="form-group">
-
-                                            <label for="inputNOMBRE" class="col-xs-3 col-md-3 col-sm-3">Nombre</label>
-
-                                            <div class="input-group col-xs-9 col-md-9 col-sm-9">
-
-                                                <input class="form-control required" name="NOMBRE" placeholder="Nombre" value="<?php print @$this->aData[0]['NOMBRE'] ?>">
-
-                                                <div class="form-group">
-
-                                                </div>   
 
                                             </div>
 
@@ -114,7 +96,8 @@
 
                             <button type="submit" class="green darken-2 btn-small">Guardar Datos</button>
 
-                            <a type="button" class="deep-orange darken-4 btn-small" href="/catalogo/">Regresar</a>
+                            <a type="button" class="deep-orange darken-4 btn-small" href="/producto/subestaciones?tpo=1">Regresar</a>
+                            
 
                         </div>
 

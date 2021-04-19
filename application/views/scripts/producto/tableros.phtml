@@ -10,7 +10,7 @@
  
                 <div class="box-header with-border">
  
-                    <h3 class="box-title">Productos</h3>
+                    <h3 class="box-title">Tableros</h3>
  
                     <div class="pull-right">
  
@@ -22,7 +22,7 @@
                     
                             <div class="pull-left" style="padding: 1%">
                     
-                                <a class="btn-small green darken-2" href="/catalogo/getinfo?optReg=set" data-toggle="tooltip" data-placement="bottom" data-original-title="Agregar"><i class="fa fa-plus"></i> Agregar Catalogo</a>
+                                <a class="btn-small green darken-2" href="/producto/getinfotablero?tpo=<?php print $_GET['tpo']?>" data-toggle="tooltip" data-placement="bottom" data-original-title="Agregar"><i class="fa fa-1x fa-plus"></i> Agregar </a>
                     
                             </div>                
                     
@@ -34,12 +34,14 @@
                     
                                 <tr role="row">                                                       
 
-                                    <th>Nombre Catalogo</th>
+                                    <th>Tablero</th>
 
-                                    <th>Estatus</th>                                   
-                                    
-                                    <th></th>                                   
-                                    
+                                    <th>Sección</th>
+
+                                    <th>Estatus</th>
+
+                                    <th></th>
+
                                     <th></th>                                   
                     
                                 </tr>                                
@@ -54,32 +56,23 @@
 
                                         <tr class="odd gradeX">                                    
 
-                                            <td><?php print $v['NOMBRE'];  ?></td>
+                                            <td><?php print $v['DESCRIPCION'];  ?></td>
+
+                                            <td><?php print $v['SECCION'];  ?></td>
 
                                             <td><?php print $v['ACTIVO'];  ?></td>
                     
-                                            <td class="right-align">
+                                            <td>
 
-                                               <?php if( $v['ACTIVO'] == 'ACTIVO'):?>
+                                            	<a href="/producto/upgetinfotablero?catId=<?php echo $v["ID_TABLERO"] ?>"><i class="fa fa-1x fa-edit"></i></a>
 
-                                                    <a class="btn-small green darken-2" href="/producto/?catId=<?php echo $v['ID_TIPO'];?>"><i class="fa fa-server"></i> Administrar Productos</a>
-                                               
-                                               <?php endif;?> 
-
-                                            </td>   
-
-                                            <td class="center-align">  
-
-                                               <a href="/catalogo/upcatalogo?catId=<?php echo $v['ID_TIPO'];?>&optReg=up"><i class="fa fa-2x fa-edit"></i></a>
-
-                                            </td>   
-
-                                            <td class="center-align">
-
-                                               <a class="delete" href="/catalogo/delete?catId=<?php echo $v['ID_TIPO'];?>&optReg=up" ><span class="warning"><i class="fa fa-2x fa-trash" style="color: red"></i></span></a>
- 
                                             </td>
 
+                                            <td>
+
+                                            	<a class="delete" href="/producto/tableros/?catId=<?php echo $v["ID_TABLERO"]; ?>&op=del" ><span class="warning"><i class="fa fa-1x fa-trash" style="color: red"></i></span></a>
+
+                                            </td>
                                         </tr>   
 
                                     <?php endforeach;?>
