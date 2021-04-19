@@ -6,12 +6,14 @@ class CotizacionController extends Zend_Controller_Action{
     private $_user;
     private $_epp;
     private $_cot;
+    private $_transformador;
     
     public function init(){
         $this->_season = new Application_Model_SeasonPanelModel;
         $this->_session = new Zend_Session_Namespace("current_session");
         $this->_panel = new Application_Model_GpsPanelModel;
         $this->_cot = new Application_Model_CotizacionModel;
+        $this->_transformador = new Application_Model_TransformadorModel;
 
         if(empty($this->_session->id)){
             $this->redirect('/home/login');
@@ -23,23 +25,30 @@ class CotizacionController extends Zend_Controller_Action{
     }
 
     public function crearcotizacionAction(){
-        $table="gim_subestaciones";
+        $table="GIM_SUBESTACIONES";
         $this->view->subestaciones = $this->_season->GetAll($table);
 
-        $table="gim_subestaciones_alcances";
+        $table="GIM_ALCANCES";
         $this->view->subestaciones_alcances = $this->_season->GetAll($table);
 
-        $table="gim_pruebas";
+        $table="GIM_PRUEBAS";
         $this->view->pruebas = $this->_season->GetAll($table);
 
     }//END INDEX
+
+    public function crearcotizaciondosAction(){
+        $table="GIM_PRUEBAS";
+        $this->view->transformadores = $this->_transformador->Gettransformadores();
+    }
 
 
     public function requestaddcotizacionAction(){
         $this->_helper->layout()->disableLayout();
         $this->_helper->viewRenderer->setNoRender(true);
         $post = $this->getRequest()->getPost();
-        var_dump($post);exit;
+
+        return $this-> _redirect('/cotizacion/crearcotizaciondos');
+
     }
 
 }

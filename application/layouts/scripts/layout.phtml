@@ -50,6 +50,8 @@
     <script src="https://code.highcharts.com/highcharts.js"> </script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+    <script type="text/javascript" src="https://cdn.rawgit.com/pinzon1992/materialize_table_pagination/f9a8478f/js/pagination.js"></script>
+
 
     <!-- Latest compiled and minified CSS -->
 
@@ -225,12 +227,19 @@ a.sidenav-trigger.top-nav {
 
             </li>
 
-
-
             <?php if ($usuarios[0]['fkroles'] == 1) { ?>
 
                 <li class="bold <?php echo getUrl('/panel/usuarios',$actual_link); echo getUsuarios($actual_link);?>">
                     <a href="/panel/usuarios">Usuarios <i class="material-icons">person</i></a>
+                </li>
+
+
+                <li class="bold <?php echo getUrl('/subestacion/subestaciones',$actual_link);?>">
+                    <a href="/subestacion/subestaciones">Subestaciones <i class="material-icons">clear_all</i></a>
+                </li>
+
+                <li class="bold <?php echo getUrl('/transformador/transformadores',$actual_link);?>">
+                    <a href="/transformador/transformadores">Transformadores <i class="material-icons">dns</i></a>
                 </li>
 
                 <li class="bold <?php echo getUrl('/cotizacion/cotizaciones',$actual_link);?>">
@@ -245,7 +254,7 @@ a.sidenav-trigger.top-nav {
 
 <main>
     <nav class="">
-        <div class="row nav-wrapper bread green lighten-1" style="width: 101%">
+        <div class="row nav-wrapper bread grey lighten-1" style="width: 101%">
 
         </div>      
     </nav>  
@@ -261,8 +270,13 @@ a.sidenav-trigger.top-nav {
 </main>
 
 <meta name="__token" content="{!! csrf_token() !!}" />  
+
 <script type="text/javascript" src="/js/script.js"></script>
+
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script src="/js/tablapaginador.js"></script>
+
 <script type="text/javascript">
 
 $('.dropdown-trigger').dropdown();

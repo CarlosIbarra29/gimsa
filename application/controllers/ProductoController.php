@@ -4,9 +4,13 @@ class ProductoController extends Zend_Controller_Action{
 
     private $_producto;
 
+    private $_catalogo;
+
     public function init(){
 
         $this->_producto = new Application_Model_ProductoModel;
+
+        $this->_catalogo = new Application_Model_CatalogoModel;
     }
 
     public function indexAction(){
@@ -42,6 +46,14 @@ class ProductoController extends Zend_Controller_Action{
     public function subestacionesAction(){
 
         $aData = $this->_producto->GET_GIM_SUBERTACIONES();
+
+        $aDataCatalogo = $this->_catalogo->GET_GIM_CATALOGO_SERVICIOS_TIPO( $_GET['tpo'] );
+
+        foreach ($aData as $k => $v) {
+
+            $aData[$k]['CATALOGO_NOMBRE'] = $aDataCatalogo[0]['NOMBRE'];
+
+        }
 
         if ( isset( $_GET['op'] ) ) {
             

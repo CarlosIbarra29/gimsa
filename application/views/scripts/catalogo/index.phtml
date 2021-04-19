@@ -10,7 +10,7 @@
  
                 <div class="box-header with-border">
  
-                    <h3 class="box-title">Productos</h3>
+                    <h3 class="box-title">Servicios</h3>
  
                     <div class="pull-right">
  
@@ -22,7 +22,13 @@
                     
                             <div class="pull-left" style="padding: 1%">
                     
-                                <a class="btn-small green darken-2" href="/catalogo/getinfo?optReg=set" data-toggle="tooltip" data-placement="bottom" data-original-title="Agregar"><i class="fa fa-plus"></i> Agregar Catalogo</a>
+                                <a class="btn-small green darken-2" href="/catalogo/getinfo?optReg=set" data-toggle="tooltip" data-placement="bottom" data-original-title="Agregar"><i class="fa fa-plus"></i> Agregar Servicio</a>
+                    
+                            </div> 
+
+                            <div class="pull-left" style="padding: 1%">
+                    
+                                <a class="btn-small green darken-2" href="/alcances/?optReg=set" data-toggle="tooltip" data-placement="bottom" data-original-title="Agregar"><i class="fa fa-plus"></i> Agregar Alcances</a>
                     
                             </div>                
                     
@@ -62,7 +68,7 @@
 
                                                <?php if( $v['ACTIVO'] == 'ACTIVO'):?>
 
-                                                    <a class="btn-small green darken-2" href="/producto/?catId=<?php echo $v['ID_TIPO'];?>"><i class="fa fa-server"></i> Administrar Productos</a>
+                                                    <a class="btn-small green darken-2" href="/producto/?catId=<?php echo $v['ID_TIPO'];?>&producto=<?php echo $v['NOMBRE'];?>"><i class="fa fa-server"></i> Administrar Servicio</a>
                                                
                                                <?php endif;?> 
 
