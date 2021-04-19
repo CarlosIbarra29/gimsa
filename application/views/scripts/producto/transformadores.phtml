@@ -1,0 +1,168 @@
+<?php $this->headScript()->appendFile('') ?> 
+
+<section class="content">
+ 
+    <div class="row">
+ 
+        <div class="col-md-12">
+ 
+            <div class="box">
+ 
+                <div class="box-header with-border">
+ 
+                    <h3 class="box-title">TRANSFORMADORES</h3>
+ 
+                    <div class="pull-right">
+ 
+                    </div>
+
+                    <div class="box-body">
+
+                        <div class="table-toolbar">
+                    
+                            <div class="pull-left" style="padding: 1%">
+                    
+                                <a class="btn-small green darken-2" href="/producto/getinfotransf?tpo=<?php print $_GET['tpo']?>" data-toggle="tooltip" data-placement="bottom" data-original-title="Agregar"><i class="fa fa-1x fa-plus"></i> Agregar </a>
+                    
+                            </div>                
+                    
+                        </div> 
+
+                        <table  class="table text-left table-hover">
+                    
+                            <thead> 
+                    
+                                <tr role="row">                                                       
+
+                                    <th>Tipo</th>
+
+                                    <th>Capacidad KVA</th>
+
+                                    <th>Tension</th>
+
+                                    <th>Estatus</th>
+
+                                    <th></th>
+
+                                    <th></th>                                   
+                    
+                                </tr>                                
+                    
+                            </thead>                     
+                    
+                            <tbody>        
+                    
+                                <?php if(count($this->aData)>0):?> 
+                    
+                                    <?php foreach($this->aData as $k => $v): ?>  
+
+                                        <tr class="odd gradeX">                                    
+
+                                            <td><?php print $v['TIPO'];  ?></td>
+
+                                            <td><?php print $v['CAPACIDAD_KVA'];  ?></td>
+
+                                            <td><?php print $v['TENSION'];  ?></td>
+
+                                            <td><?php print $v['ACTIVO'];  ?></td>
+                    
+                                            <td>
+
+                                            	<a href="/producto/upgetinfotransf?catId=<?php echo $v["ID_TRANSFORMADOR"] ?>"><i class="fa fa-1x fa-edit"></i></a>
+
+                                            </td>
+
+                                            <td>
+
+                                            	<a class="delete" href="/producto/transformadores/?catId=<?php echo $v["ID_TRANSFORMADOR"]; ?>&op=del" ><span class="warning"><i class="fa fa-1x fa-trash" style="color: red"></i></span></a>
+
+                                            </td>
+                                        </tr>   
+
+                                    <?php endforeach;?>
+
+                                <?php endif;?>
+
+                            </tbody>
+
+                        </table>
+
+                    </div> 
+
+                </div>
+
+            </div>        
+
+        </div>
+
+    </div>
+
+</section>
+
+<?php if( $_GET['del'] == 1 ):?>
+
+    <script>
+
+       $(document).ready( function(){
+          
+          success();
+       
+       });
+
+    </script>
+
+<?php elseif ( $_GET['del'] == -1):?>
+
+    <script>
+
+       $(document).ready( function(){
+          
+          danger();
+       
+       });
+
+    </script>
+
+<?php endif; ?>
+
+
+<script type="text/javascript">
+    
+    function success(){
+
+        swal({
+
+            icon: "success",
+
+            text: "Se elimino de manera Correcta",
+
+        });
+
+    }
+
+    function danger(){
+
+        swal({
+
+            icon: "error",
+
+            text: "Ocurrio un error al eliminar",
+
+        });
+
+    }
+    
+</script>
+
+
+<!--
+
+    butonones agregar -- green darken-2
+
+    editar --  light-blue darken-2
+
+    eliminar .-- deep-orange darken-4
+
+
+
+    -->
