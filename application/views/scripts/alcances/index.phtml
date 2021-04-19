@@ -1,6 +1,4 @@
 
-    
-
 <section class="content">
  
     <div class="row">
@@ -11,11 +9,100 @@
  
                 <div class="box-header with-border">
  
-                    <h3 class="box-title">Servicios Alcances</h3>
- 
-                    <div class="pull-right">
- 
+                    <div class="row">
+
+                        <div class="col s12 m12"  style="margin-top: 20px;">
+
+                            <div class="card">
+
+                                <div class="card-content">
+
+                                    <div class="row">
+
+                                        <div class="col m12 s12 text-center">
+
+                                          <span class="title_view">ALCANCES <?php print $this->aData[0]['SERVICIO']; ?></span>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row" style="margin-top: 25px;">
+
+                                        <div class="col m3 s6 text-center"> 
+
+                                            <a href="/producto/?catId=<?php echo $_GET['tpo'];?>">
+
+                                                <div class="chip">
+
+                                                    <img src="/img/gris.jpg">
+
+                                                    <?php print $this->aData[0]['SERVICIO']; ?>
+
+                                                </div>
+
+                                            </a>
+
+                                        </div>
+
+                                        <div class="col m3 s6 text-center"> 
+
+                                            <a href="/alcances/?tpo=<?php print $_GET['tpo'] ?>">
+
+                                                <div class="chip">
+
+                                                    <img src="/img/correct.png">
+
+                                                    Alcances
+
+                                                </div>
+
+                                            </a>
+
+                                        </div>
+
+                                        <div class="col m3 s6 text-center"> 
+
+                                            <a href="/pruebas/?tpo=<?php print $_GET['tpo'] ?>">
+
+                                                <div class="chip">
+
+                                                    <img src="/img/gris.jpg">
+
+                                                    Pruebas
+
+                                                </div>
+
+                                            </a>
+
+                                        </div>
+
+                                        <div class="col m3 s6 text-center"> 
+
+                                            <a href="/secciones/?tpo=<?php print $_GET['tpo'] ?>"> 
+
+                                                <div class="chip">
+
+                                                    <img src="/img/gris.jpg">
+
+                                                    Secciones
+
+                                                </div>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
                     </div>
+
 
                     <div class="box-body">
 
@@ -23,7 +110,7 @@
                     
                             <div class="pull-left" style="padding: 1%">
                     
-                                <a class="btn-small green darken-2" href="/alcances/getinfo?optReg=set" data-toggle="tooltip" data-placement="bottom" data-original-title="Agregar"><i class="fa fa-plus"></i> Agregar </a>
+                                <a class="btn-small green darken-2" href="/alcances/getinfo?optReg=set&tpo=<?php print $_GET['tpo'] ?>" data-toggle="tooltip" data-placement="bottom" data-original-title="Agregar"><i class="fa fa-plus"></i> Agregar Alcance</a>
 
                                 <a type="button" class="deep-orange darken-4 btn-small" href="/producto/?catId=<?php echo $_GET['tpo'];?>">Regresar</a>
                     
@@ -187,16 +274,3 @@ $(document).ready(function(){
     }
     
 </script>
-
-
-<!--
-
-    butonones agregar -- green darken-2
-
-    editar --  light-blue darken-2
-
-    eliminar .-- deep-orange darken-4
-
-
-
-    -->

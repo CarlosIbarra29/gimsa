@@ -21,7 +21,9 @@ class AlcancesController extends Zend_Controller_Action{
 
     public function getinfoAction(){
 
-        $aData = $this->_alcances->SET_GIM_CATALOGO_SERVICIOS_TIPO();
+        $idTipo = $_GET['tpo'];
+
+        $aData = $this->_alcances->SET_GIM_CATALOGO_SERVICIOS_TIPO( $idTipo );
 
         $this->view->aData = $aData;
 
@@ -46,6 +48,8 @@ class AlcancesController extends Zend_Controller_Action{
             $fnInsert = $this->_alcances->fnInsert( 'GIM_ALCANCES', $aDataIn );
 
             $this->view->aResponse = $fnInsert;
+
+            $this->view->aResponseTipo = $_POST['ID_TIPO'];
 
         }
         

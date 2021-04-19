@@ -62,13 +62,17 @@ class Application_Model_AlcancesModel extends Zend_Db_Table_Abstract{
     
     } 
 
-    public function SET_GIM_CATALOGO_SERVICIOS_TIPO(){  
+    public function SET_GIM_CATALOGO_SERVICIOS_TIPO( $idTipo ){  
     
         try{
     
             $db = Zend_Db_Table::getDefaultAdapter();
 
-            $sql = "SELECT A.ID_TIPO AS TIPO , A.DESCRIPCION AS CBO_DESCRIPCION FROM GIM_CATALOGO_SERVICIOS_TIPO A";
+            $sql = "SELECT A.ID_TIPO AS TIPO , A.DESCRIPCION AS CBO_DESCRIPCION 
+
+                    FROM GIM_CATALOGO_SERVICIOS_TIPO 
+
+                    WHERE A.ID_TIPO = '$idTipo'";
     
             $qry = $db->query( $sql );
     
