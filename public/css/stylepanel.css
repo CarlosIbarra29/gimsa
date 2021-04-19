@@ -62,7 +62,7 @@
   background: #eee;
 }
 .progress .bar.active {
-  background: linear-gradient(to right, #EEE 40%, #FFF 60%);
+  background: linear-gradient(to right, #8bc435 20%, #FFF 50%);
 }
 .progress .circle.done .label {
   color: #FFF;
