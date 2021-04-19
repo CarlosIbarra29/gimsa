@@ -36,7 +36,7 @@ body {
   /*color: #333333;*/
   line-height: 1.2;
   text-align: center;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
 }
 
 .wrap-login100 {
@@ -63,10 +63,10 @@ body {
   flex-wrap: wrap;
   align-items: flex-end;
   width: 100%;
-  height: 80px;
+  height: 75px;
   position: relative;
-  border: 1px solid #e6e6e6;
-  border-radius: 10px;
+  /*border: 1px solid #e6e6e6;
+  border-radius: 10px;*/
   margin-bottom: 10px;
 }
 
@@ -75,7 +75,7 @@ body {
   display: block;
   width: 100%;
   background: transparent;
-  font-size: 18px;
+  font-size: 15px;
   color: #555555;
   line-height: 1.2;
   padding: 0 26px;
@@ -97,8 +97,8 @@ input.input100 {
   top: -1px;
   left: -1px;
   pointer-events: none;
-  border: 1px solid #6675df;
-  border-radius: 10px;
+  /*border: 1px solid #6675df;*/
+  /*border-radius: 10px;*/
 
   visibility: hidden;
   opacity: 0;
@@ -138,7 +138,7 @@ input.input100 {
 }
 
 .input100:focus {
-  height: 48px;
+  height: 30px;
 }
 
 .input100:focus + .focus-input100 + .label-input100 {
@@ -146,9 +146,18 @@ input.input100 {
   font-size: 13px;
 }
 
+.has-val {
+  height: 48px !important;
+}
+
+.has-val + .focus-input100 + .label-input100 {
+  top: 14px;
+  font-size: 13px;
+}
+
 .label-input100 {
   /*font-family: Montserrat-Regular;*/
-  font-size: 18px;
+  font-size: 15px;
   color: #999999;
   line-height: 1.2;
 
@@ -176,6 +185,7 @@ input.input100 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 5%;
 }
 
 .login100-form-btn {
@@ -187,13 +197,13 @@ input.input100 {
   justify-content: center;
   align-items: center;
   padding: 0 20px;
-  width: 100%;
-  height: 50px;
+  width: 40%;
+  height: 40px;
   border-radius: 10px;
   background: #00236e;
 
   font-family: "Poppins", sans-serif;
-  font-size: 15px;
+  font-size: 13px;
   color: #fff;
   line-height: 1.2;
   text-transform: uppercase;
@@ -311,96 +321,52 @@ input.input100 {
   transition: all 0.1s ease-out;
   border-bottom-width: 7px;
 }
-
 </style>
 
-
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script> -->
-<!-- <div class="row center-block col-lg-offset-4 col-md-offset-2">
-  <div class="white-box">
-    <div class="col-lg-12 col-md-12 text-center">
-      <h2>Iniciar sesion</h2> <br>       
-    </div>
-    <div class="col-lg-12 col-md-12">
-      <h4 class="text-center inner-padding">Ingrese sus datos. </h4>
-      <form method="POST" action="/index/validar">
-        <div class="row">
-          <div class="col-lg-12 col-md-12">
-            <div class="form-group">
-              <label><i class="fa fa-user" aria-hidden="true"></i> Correo</label>
-              <input type="text" name="mail"  class="form-control"/>    
-            </div>
-            <div class="form-group">
-              <label><i class="fa fa-lock" aria-hidden="true"></i> Contraseña</label>
-              <input type="password" name="passw" class="form-control"/> 
-              <a href="/home/recuperarcontrasena"><h6>Olvide contraseña</h6></a>
-            </div>
-            <div class="form-group text-center">
-             <input type="submit" value="Iniciar Sesión" class="btn btn-primary"/>
-           </div>
-         </div>
-       </div>     
-     </form>
-   </div>            
- </div>
-</div> --> 
-
 <br>
-<!-- Login -->
 <div class="row">
-  <div class=" col m12 s12 ">
-    <div class="col s12 m12 container-login100">
-   
-      <!-- <h2 class="text-center" style="font-size: 30px;">¡Bienvenido!</h2> -->
+    <div class=" col m12 s12 ">
+        <div class="col s12 m12 container-login100">
+            <div class="wrap-login100">
 
-      
-      <div class="wrap-login100">
-      
-        <!-- <div class="col s12 m12 text-center"><img style="width: 110px;" src="/img/indlog.png" /> </div> -->
-       
-            
-            <form action="/index/validar" method="POST" enctype="multipart/form-data" class="login100-form">
-              <div class="col s12 m12 text-center"><img style="width: 110px;" src="/img/indlog.png" /> </div>
-              <span class="login100-form-title" >¡Bienvenido!<br> <p style="font-size: 14px;">Identificate para Acceder</p></span>
+                <form action="/index/validar" method="POST" enctype="multipart/form-data" class="login100-form validate-form">
+                    <div class="col s12 m12 text-center">
+                        <img style="width: 110px;" src="/img/indlog.png" /> 
+                    </div>
 
-              <input type="hidden" name="ids" value="<?php echo $usr['id']; ?>">
-              
-              <div class="wrap-input100 col m12 s12 ">
-                <input class="input100" type="text" name="mail">
-                <span class="focus-input100"></span>
-                <span class="label-input100">Correo: </span>
-              </div>
+                    <span class="login100-form-title" >¡Bienvenido!<br> 
+                        <p style="font-size: 14px;">Identificate para Acceder</p>
+                    </span>
+                    
+                    <input type="hidden" name="ids" value="<?php echo $usr['id']; ?>">
 
-              <div class="wrap-input100 col m12 s12" data-validate="Password is required">
-                <input class="input100" type="password" name="passw">
-                <span class="focus-input100"></span>
-                <span class="label-input100">Contraseña: </span>
-              </div>
+                    <div class="wrap-input100 col m12 s12 validate-input " >
+                        <input class="input100" type="text" name="mail" required>
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Correo: </span>
+                    </div>
 
-              <div class="container-login100-form-btn">
-                <button type="submit" id="add_user" class="login100-form-btn">
-                  Iniciar sesión
-                </button>
-              </div>
+                    <div class="wrap-input100 col m12 s12 validate-input" data-validate="Password is required">
+                        <input class="input100" type="password" name="passw" required>
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Contraseña: </span>
+                    </div>
 
-              <div class="col s12 m12 text-right">
-                <a href="/home/recuperarcontrasena">¿Olvidaste tu contraseña?</a>
-              </div>
+                    <div class="container-login100-form-btn">
+                        <button type="submit" id="add_user" class="login100-form-btn">
+                            Iniciar sesión
+                        </button>
+                    </div>
 
-
-              <!-- <div class="input-field col m12 s12 text-center">
-                <div class="row">
-                  <div class="col m2 s12"> </div>
-                  <div class="col m8 s12">
-                    <button type="submit" id="add_user" class="waves-effect waves-light btn">Iniciar sesión</button>
-                  </div>
-                  <div class="col m2 s12"></div> 
-                </div>  
-              </div> -->
-
-            </form>
+                    <!-- <div class="col s12 m12 text-right">
+                        <a href="/home/recuperarcontrasena">¿Olvidaste tu contraseña?</a>
+                    </div> -->
+                </form>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
+
+
+<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="/js/main.js"></script>
