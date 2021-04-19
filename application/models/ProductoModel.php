@@ -85,6 +85,34 @@ class Application_Model_ProductoModel extends Zend_Db_Table_Abstract{
     
     } 
 
+    public function GET_GIM_SUBESTACIONES_TIPO_ID( $idTipo ){  
+    
+        try{
+    
+            $db = Zend_Db_Table::getDefaultAdapter();
+
+            $sql = "SELECT A.ID_TIPO AS TIPO , A.DESCRIPCION AS CBO_DESCRIPCION 
+
+                    FROM GIM_SUBESTACIONES_TIPO A
+
+                    WHERE A.ID_TIPO = '$idTipo'";
+    
+            $qry = $db->query( $sql );
+    
+            $row = $qry->fetchAll();
+    
+            return $row;
+    
+            $db->closeConnection();
+    
+        }catch (Exception $e){
+    
+            echo $e;
+    
+        }
+    
+    }
+
     public function fnInsert( $table, $post ) {
 
         try {

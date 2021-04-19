@@ -11,7 +11,9 @@ class AlcancesController extends Zend_Controller_Action{
 
     public function indexAction(){
 
-        $aData = $this->_alcances->GIM_ALCANCES_ALL();
+        $idAlcance = $_GET['tpo'];
+
+        $aData = $this->_alcances->GIM_ALCANCES_ALL( $idAlcance );
 
         $this->view->aData = $aData;
 
