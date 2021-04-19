@@ -22,13 +22,13 @@
                     
                             <div class="pull-left" style="padding: 1%">
                     
-                                <a class="btn btn-sm icon-only  tooltip-success" href="/catalogo/getinfo?optReg=set" data-toggle="tooltip" data-placement="bottom" data-original-title="Agregar"><i class="fa fa-fw fa-plus-circle"></i> Agregar Catalogo</a>
+                                <a class="btn-small green darken-2" href="/catalogo/getinfo?optReg=set" data-toggle="tooltip" data-placement="bottom" data-original-title="Agregar"><i class="fa fa-plus"></i> Agregar Catalogo</a>
                     
                             </div>                
                     
                         </div> 
 
-                        <table  class="table table-bordered table-hover table-bordered">
+                        <table  class="table text-left table-hover">
                     
                             <thead> 
                     
@@ -36,6 +36,10 @@
 
                                     <th>Nombre Catalogo</th>
 
+                                    <th>Estatus</th>                                   
+                                    
+                                    <th></th>                                   
+                                    
                                     <th></th>                                   
                     
                                 </tr>                                
@@ -51,12 +55,28 @@
                                         <tr class="odd gradeX">                                    
 
                                             <td><?php print $v['NOMBRE'];  ?></td>
-                    
-                                            <td>
- 
-                                               <a class="btn  btn-sm icon-only  tooltip-info" href="/catalogo/getinfo?catId=<?php echo $v['ID_SERVICIO'];?>" data-toggle="tooltip" data-placement="top" data-original-title="Editar"><i class="fa fa-edit"></i>Agregar Productos</a>
 
-                                               <a class="btn  btn-sm icon-only  tooltip-info" href="/catalogo/getinfo?catId=<?php echo $v['ID_TIPO'];?>&optReg=up" data-toggle="tooltip" data-placement="top" data-original-title="Editar"><i class="fa fa-edit"></i>Editar Catalogo</a>
+                                            <td><?php print $v['ACTIVO'];  ?></td>
+                    
+                                            <td class="right-align">
+
+                                               <?php if( $v['ACTIVO'] == 'ACTIVO'):?>
+
+                                                    <a class="btn-small green darken-2" href="/producto/?catId=<?php echo $v['ID_TIPO'];?>"><i class="fa fa-server"></i> Administrar Productos</a>
+                                               
+                                               <?php endif;?> 
+
+                                            </td>   
+
+                                            <td class="center-align">  
+
+                                               <a href="/catalogo/upcatalogo?catId=<?php echo $v['ID_TIPO'];?>&optReg=up"><i class="fa fa-2x fa-edit"></i></a>
+
+                                            </td>   
+
+                                            <td class="center-align">
+
+                                               <a class="delete" href="/catalogo/delete?catId=<?php echo $v['ID_TIPO'];?>&optReg=up" ><span class="warning"><i class="fa fa-2x fa-trash" style="color: red"></i></span></a>
  
                                             </td>
 
@@ -81,3 +101,71 @@
     </div>
 
 </section>
+
+<?php if( $_GET['del'] == 1 ):?>
+
+    <script>
+
+       $(document).ready( function(){
+          
+          success();
+       
+       });
+
+    </script>
+
+<?php elseif ( $_GET['del'] == -1):?>
+
+    <script>
+
+       $(document).ready( function(){
+          
+          danger();
+       
+       });
+
+    </script>
+
+<?php endif; ?>
+
+
+<script type="text/javascript">
+    
+    function success(){
+
+        swal({
+
+            icon: "success",
+
+            text: "Se elimino de manera Correcta",
+
+        });
+
+    }
+
+    function danger(){
+
+        swal({
+
+            icon: "error",
+
+            text: "Ocurrio un error al eliminar",
+
+        });
+
+    }
+    
+</script>
+
+
+<!--
+
+    butonones agregar -- green darken-2
+
+    editar --  light-blue darken-2
+
+    eliminar .-- deep-orange darken-4
+
+
+
+    -->
