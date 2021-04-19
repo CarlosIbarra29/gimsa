@@ -6,12 +6,14 @@ class CotizacionController extends Zend_Controller_Action{
     private $_user;
     private $_epp;
     private $_cot;
+    private $_transformador;
     
     public function init(){
         $this->_season = new Application_Model_SeasonPanelModel;
         $this->_session = new Zend_Session_Namespace("current_session");
         $this->_panel = new Application_Model_GpsPanelModel;
         $this->_cot = new Application_Model_CotizacionModel;
+        $this->_transformador = new Application_Model_TransformadorModel;
 
         if(empty($this->_session->id)){
             $this->redirect('/home/login');
@@ -34,12 +36,19 @@ class CotizacionController extends Zend_Controller_Action{
 
     }//END INDEX
 
+    public function crearcotizaciondosAction(){
+        $table="GIM_PRUEBAS";
+        $this->view->transformadores = $this->_transformador->Gettransformadores();
+    }
+
 
     public function requestaddcotizacionAction(){
         $this->_helper->layout()->disableLayout();
         $this->_helper->viewRenderer->setNoRender(true);
         $post = $this->getRequest()->getPost();
-        var_dump($post);exit;
+
+        return $this-> _redirect('/cotizacion/crearcotizaciondos');
+
     }
 
 }
