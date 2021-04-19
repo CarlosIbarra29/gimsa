@@ -32,7 +32,8 @@
     <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/js/chart/dist/Chart.min.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-    
+    <link href="/css/stylepanel.css" rel="stylesheet" />
+
     <script type="text/javascript" src="/js/jquery.v3.js"></script>
     <script type="text/javascript" src="/js/chart/Chart.min.js"></script>
     <script src ="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -230,6 +231,9 @@ a.sidenav-trigger.top-nav {
                     <a href="/panel/usuarios">Usuarios <i class="material-icons">person</i></a>
                 </li>
 
+                <li class="bold <?php echo getUrl('/cotizacion/cotizaciones',$actual_link);?>">
+                    <a href="/cotizacion/cotizaciones">Cotización <i class="material-icons">description</i></a>
+                </li>
             <?php } ?>
 
 
