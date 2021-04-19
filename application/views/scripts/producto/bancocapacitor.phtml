@@ -10,10 +10,98 @@
  
                 <div class="box-header with-border">
  
-                    <h3 class="box-title">BANCOS CAPACITORES</h3>
- 
-                    <div class="pull-right">
- 
+                    <div class="row">
+
+                        <div class="col s12 m12"  style="margin-top: 20px;">
+
+                            <div class="card">
+
+                                <div class="card-content">
+
+                                    <div class="row">
+
+                                        <div class="col m12 s12 text-center">
+
+                                          <span class="title_view"><?php print $this->aData[0]['CATALOGO_NOMBRE']; ?></span>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row" style="margin-top: 25px;">
+
+                                        <div class="col m3 s6 text-center"> 
+
+                                            <a href="/producto/?catId=<?php echo $_GET['tpo'];?>">
+
+                                                <div class="chip">
+
+                                                    <img src="/img/correct.png">
+
+                                                    <?php print $this->aData[0]['CATALOGO_NOMBRE']; ?>
+
+                                                </div>
+
+                                            </a>
+
+                                        </div>
+
+                                        <div class="col m3 s6 text-center"> 
+
+                                            <a href="/alcances/index?tpo=<?php print $_GET['tpo'] ?>">
+
+                                                <div class="chip">
+
+                                                    <img src="/img/gris.jpg">
+
+                                                    Alcances
+
+                                                </div>
+
+                                            </a>
+
+                                        </div>
+
+                                        <div class="col m3 s6 text-center"> 
+
+                                            <a href="/pruebas/">
+
+                                                <div class="chip">
+
+                                                    <img src="/img/gris.jpg">
+
+                                                    Pruebas
+
+                                                </div>
+
+                                            </a>
+
+                                        </div>
+
+                                        <div class="col m3 s6 text-center"> 
+
+                                            <a href="/subestacion/seccionessubestacion"> 
+
+                                                <div class="chip">
+
+                                                    <img src="/img/gris.jpg">
+
+                                                    Secciones
+
+                                                </div>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
                     </div>
 
                     <div class="box-body">

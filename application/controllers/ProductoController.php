@@ -145,6 +145,14 @@ class ProductoController extends Zend_Controller_Action{
 
         $aData = $this->_producto->GET_GIM_PLANTAS_EMERGENCIA_ALL();
 
+        $aDataCatalogo = $this->_catalogo->GET_GIM_CATALOGO_SERVICIOS_TIPO( $_GET['tpo'] );
+
+        foreach ($aData as $k => $v) {
+
+            $aData[$k]['CATALOGO_NOMBRE'] = $aDataCatalogo[0]['NOMBRE'];
+
+        }
+
         if ( isset( $_GET['op'] ) ) {
             
             $idCatalogo =  $_GET['catId'];
@@ -231,7 +239,16 @@ class ProductoController extends Zend_Controller_Action{
 
     public function transformadoresAction(){
 
+        $aDataCatalogo = $this->_catalogo->GET_GIM_CATALOGO_SERVICIOS_TIPO( $_GET['tpo'] );
+
         $aData = $this->_producto->GET_GIM_TRANSFORMADORES_ALL();
+
+        foreach ($aData as $k => $v) {
+
+            $aData[$k]['CATALOGO_NOMBRE'] = $aDataCatalogo[0]['CATEGORIA'];
+
+        }
+
 
         if ( isset( $_GET['op'] ) ) {
             
@@ -325,7 +342,15 @@ class ProductoController extends Zend_Controller_Action{
 
     public function tablerosAction(){
 
+        $aDataCatalogo = $this->_catalogo->GET_GIM_CATALOGO_SERVICIOS_TIPO( $_GET['tpo'] );
+
         $aData = $this->_producto->GIM_TABLERO_ALL();
+
+        foreach ($aData as $k => $v) {
+
+            $aData[$k]['CATALOGO_NOMBRE'] = $aDataCatalogo[0]['NOMBRE'];
+
+        }
 
         if ( isset( $_GET['op'] ) ) {
             
@@ -413,7 +438,15 @@ class ProductoController extends Zend_Controller_Action{
 
     public function bancocapacitorAction(){
 
+        $aDataCatalogo = $this->_catalogo->GET_GIM_CATALOGO_SERVICIOS_TIPO( $_GET['tpo'] );
+
         $aData = $this->_producto->GIM_BANCO_CAPACITORES_ALL();
+
+        foreach ($aData as $k => $v) {
+
+            $aData[$k]['CATALOGO_NOMBRE'] = $aDataCatalogo[0]['NOMBRE'];
+
+        }
 
         if ( isset( $_GET['op'] ) ) {
             
