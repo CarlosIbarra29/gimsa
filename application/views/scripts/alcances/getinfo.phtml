@@ -6,15 +6,15 @@
 
             <div class="box">
 
-                <div class="box-header with-border">
+                <div class="box-header with-border" style="padding: 1%">
 
-                    <h3 class="box-title">Registrar Productos</h3>
+                    <h3 class="box-title">Registrar Alcance <?php print $this->aData[0]['CBO_DESCRIPCION'] ?></h3>
 
                 </div>
 
                 <div class="box-body">
 
-                    <form role="form" method="POST" action="/alcances/getinfo" id="FormData"  enctype="multipart/form-data">
+                    <form role="form" method="POST" action="/alcances/getinfo?tpo=<?php print $_GET['tpo'] ?>" id="FormData"  enctype="multipart/form-data">
 
                         <input type="hidden" name="optReg" value="set">
 
@@ -98,7 +98,7 @@
 
                             <button type="submit" class="green darken-2 btn-small">Guardar Datos</button>
 
-                            <a type="button" class="deep-orange darken-4 btn-small" href="/alcances/?tpo=<?php print $this->aResponseTipo ?>">Regresar</a>
+                            <a type="button" class="deep-orange darken-4 btn-small" href="/alcances/?tpo=<?php print $_GET['tpo'] ?>">Regresar</a>
 
                         </div>
 

@@ -70,7 +70,7 @@ class Application_Model_AlcancesModel extends Zend_Db_Table_Abstract{
 
             $sql = "SELECT A.ID_TIPO AS TIPO , A.DESCRIPCION AS CBO_DESCRIPCION 
 
-                    FROM GIM_CATALOGO_SERVICIOS_TIPO 
+                    FROM GIM_CATALOGO_SERVICIOS_TIPO A
 
                     WHERE A.ID_TIPO = '$idTipo'";
     
