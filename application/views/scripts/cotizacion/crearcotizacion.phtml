@@ -131,16 +131,16 @@
           			</div>
 
           			<div class="col m6 s6 text-right" id="pruebas_pendiente">
-						<div class="chip">
-						   	<img src="/img/gris.jpg" >
-						   	Pendiente
-						</div>
+      						<div class="chip">
+      						   	<img src="/img/gris.jpg" >
+      						   	Pendiente
+      						</div>
           			</div>
           			<div class="col m6 s6 text-right oculto" id="pruebas_seleccionada">
-						<div class="chip">
-						   	<img src="/img/correct.png" >
-						   	Seleciconada
-						</div>
+      						<div class="chip">
+      						   	<img src="/img/correct.png" >
+      						   	Seleciconada
+      						</div>
           			</div>
           		</div>
 
@@ -167,7 +167,25 @@
     <div class="col s12 m12">
       <div class="card">
         <div class="card-content">
-          <span class="subtitle_view">Secciones</span>
+          <div class="row">
+            <div class="col m6 s6">
+              <span class="subtitle_view">Secciones</span>
+            </div>
+
+            <div class="col m6 s6 text-right" id="secciones_pendiente">
+              <div class="chip">
+                <img src="/img/gris.jpg" >
+                Pendiente
+              </div>
+            </div>
+            <div class="col m6 s6 text-right oculto" id="secciones_seleccionada">
+              <div class="chip">
+                <img src="/img/correct.png" >
+                Seleciconada
+              </div>
+            </div>
+          </div>
+
           <div class="row" style="margin-top: 20px;">
             <div class="col s12 m4">
               <div class="card">
@@ -179,7 +197,7 @@
                     <div class="col m4 s6">
                       <p>
                         <label>
-                          <input name="secc" type="radio" />
+                          <input name="secc" class="seccion_op" data-id="1" data-descripcion="Seccion 1, precio: $6,400" type="radio" />
                           <span></span>
                         </label>
                       </p>                     
@@ -228,7 +246,7 @@
                     <div class="col m4 s6">
                       <p>
                         <label>
-                          <input name="secc" type="radio" />
+                          <input name="secc" class="seccion_op" data-id="2" data-descripcion="Seccion 1, precio: $8,200" type="radio" />
                           <span></span>
                         </label>
                       </p>                     
@@ -276,7 +294,7 @@
                     <div class="col m4 s6">
                       <p>
                         <label>
-                          <input name="secc" type="radio" />
+                          <input name="secc" class="seccion_op" data-id="2" data-descripcion="Seccion 1, precio: $8,200" type="radio" />
                           <span></span>
                         </label>
                       </p>                     
@@ -369,6 +387,12 @@
 				            	<label id="prueba_terminaruno"></label><label id="prueba_terminar">No seleccionada</label>
 				            </td>
 				        </tr>
+                <tr>
+                    <td>Secciones</td>
+                    <td>
+                      <label id="secciones_terminaruno"></label><label id="secciones_terminar">No seleccionada</label>
+                    </td>
+                </tr>
         			</tbody>
       			</table>
     		</div>
@@ -386,6 +410,7 @@
 	<input type="hidden" name="subestacion" id="form_subestaciones" value="">
 	<input type="hidden" name="alcance" id="form_alcance" value="">
 	<input type="hidden" name="pruebas" id="form_prueba" value="">
+  <input type="hidden" name="secciones" id="form_secciones" value="">
 </form>
 
 
@@ -433,12 +458,26 @@
 		document.getElementById("form_prueba").value= id;
 	});
 
+  $(".seccion_op").click(function(){
+    var id = $(this).data('id');
+    var descripcion = $(this).data('descripcion');
+    $('#secciones_terminar').html(descripcion);
+    console.log("ID alcance: "+id);
+
+    $("#secciones_pendiente").hide();
+    $("#secciones_seleccionada").show();
+
+    document.getElementById("form_secciones").value= id;
+  });
+
+
 	$("#add_pasouno").click(function(){
     var subestacion = document.getElementById("form_subestaciones").value;
     var alcance = document.getElementById("form_alcance").value;
     var prueba = document.getElementById("form_prueba").value;
+    var seccion = document.getElementById("form_secciones").value;
 
-      if(subestacion == "" || alcance == "" || prueba == ""){
+      if(subestacion == "" || alcance == "" || prueba == "" || secciones ==""){
         swal({
           title: "Para continuar es necesario que selecciones un dato de cada seccion",
         });
