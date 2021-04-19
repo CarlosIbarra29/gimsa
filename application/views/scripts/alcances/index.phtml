@@ -118,7 +118,7 @@
                     
                         </div> 
 
-                        <table  class="table table-hover" id="myTable" cellpadding="1" cellspacing="1" >
+                        <table  class="table table-hover" id="TablaPaginador" cellpadding="1" cellspacing="1" >
                     
                             <thead> 
                     
@@ -176,9 +176,9 @@
 
                         <div class="col-md-12 center text-center">
 
-                            <span class="left" id="total_reg"></span>
+                            <br>
 
-                            <ul class="pagination pager" id="myPager"></ul>
+                            <ul class="pagination pager" id="paginador"></ul>
 
                         </div>
 
@@ -194,31 +194,7 @@
 
 </section>
 
-<script>
 
-$(document).ready(function(){
-
-  $('#myTable').pageMe({
-
-    pagerSelector:'#myPager',
-
-    activeColor: 'blue',
-
-    prevText:'Anterior',
-
-    nextText:'Siguiente',
-
-    showPrevNext:true,
-
-    hidePageNumbers:false,
-
-    perPage:6
-
-  });
-
-});
-
-</script>
 
 <?php if( $_GET['del'] == 1 ):?>
 
