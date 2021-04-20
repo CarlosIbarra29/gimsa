@@ -221,26 +221,26 @@ a.sidenav-trigger.top-nav {
 
             </li>
 
-            <li class="bold">
-
-                <a href="/catalogo">Catalogos <i class="fa fa-wrench" aria-hidden="true"></i></a>
-
-            </li>
-
             <?php if ($usuarios[0]['fkroles'] == 1) { ?>
 
+                <li class="bold">
+
+                    <a href="/catalogo">Catalogos  <i class="material-icons">dns</i></a>
+
+                </li>
+                
                 <li class="bold <?php echo getUrl('/panel/usuarios',$actual_link); echo getUsuarios($actual_link);?>">
                     <a href="/panel/usuarios">Usuarios <i class="material-icons">person</i></a>
                 </li>
 
 
-                <li class="bold <?php echo getUrl('/subestacion/subestaciones',$actual_link);?>">
+                <!-- <li class="bold <?php //echo getUrl('/subestacion/subestaciones',$actual_link);?>">
                     <a href="/subestacion/subestaciones">Subestaciones <i class="material-icons">clear_all</i></a>
                 </li>
 
-                <li class="bold <?php echo getUrl('/transformador/transformadores',$actual_link);?>">
+                <li class="bold <?php //echo getUrl('/transformador/transformadores',$actual_link);?>">
                     <a href="/transformador/transformadores">Transformadores <i class="material-icons">dns</i></a>
-                </li>
+                </li> -->
 
                 <li class="bold <?php echo getUrl('/cotizacion/cotizaciones',$actual_link);?>">
                     <a href="/cotizacion/cotizaciones">Cotización <i class="material-icons">description</i></a>
