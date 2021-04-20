@@ -1,19 +1,19 @@
 <?php
 
-class AlcancesController extends Zend_Controller_Action{
+class PruebasController extends Zend_Controller_Action{
 
     private $_alcances;
 
     public function init(){
 
-        $this->_alcances = new Application_Model_AlcancesModel;
+        $this->_pruebas = new Application_Model_PruebasModel;
     }
 
     public function indexAction(){
 
-        $idAlcance = $_GET['tpo'];
+        $idTipo = $_GET['tpo'];
 
-        $aData = $this->_alcances->GIM_ALCANCES_ALL( $idAlcance );
+        $aData = $this->_pruebas->GIM_PRUEBAS_ALL( $idTipo );
 
         $this->view->aData = $aData;
 
@@ -23,7 +23,7 @@ class AlcancesController extends Zend_Controller_Action{
 
         $idTipo = $_GET['tpo'];
 
-        $aData = $this->_alcances->SET_GIM_CATALOGO_SERVICIOS_TIPO( $idTipo );
+        $aData = $this->_pruebas->SET_GIM_CATALOGO_SERVICIOS_TIPO( $idTipo );
 
         $this->view->aData = $aData;
 
@@ -35,6 +35,8 @@ class AlcancesController extends Zend_Controller_Action{
 
             $aDataIn['DESCRIPCION'] = $_POST['DESCRIPCION'];
 
+            $aDataIn['PRUEBA'] = $_POST['PRUEBA'];
+
             if( $_POST['ACTIVO'] == 'on' ){
 
                 $aDataIn['ACTIVO'] = 1;
@@ -45,7 +47,7 @@ class AlcancesController extends Zend_Controller_Action{
 
             }
 
-            $fnInsert = $this->_alcances->fnInsert( 'GIM_ALCANCES', $aDataIn );
+            $fnInsert = $this->_pruebas->fnInsert( 'GIM_PRUEBAS', $aDataIn );
 
             $this->view->aResponse = $fnInsert;
 
@@ -56,9 +58,9 @@ class AlcancesController extends Zend_Controller_Action{
     }
 
 
-    public function upalcancesAction(){
+    public function updateAction(){
 
-        $aData = $this->_alcances->GIM_ALCANCES_TIPO( $_GET['catId'] );
+        $aData = $this->_pruebas->GIM_PRUEBAS_TIPO( $_GET['catId'] );
 
         $this->view->aData = $aData;
 
@@ -66,9 +68,11 @@ class AlcancesController extends Zend_Controller_Action{
 
         if ( $optReg == 'set' ) {
 
-            $aDataIn['ID_ALCANCE'] = $_POST['ID_TIPO'];
+            $aDataIn['ID_PRUEBA'] = $_POST['ID_TIPO'];
 
             $aDataIn['DESCRIPCION'] = $_POST['DESCRIPCION'];
+
+            $aDataIn['PRUEBA'] = $_POST['PRUEBA'];
 
             if( $_POST['ACTIVO'] == 'on' ){
 
@@ -80,11 +84,13 @@ class AlcancesController extends Zend_Controller_Action{
 
             }
 
-            $fnUpdate =  $this->view->aResponse = $this->_alcances->fnUpdate( 'GIM_ALCANCES', $aDataIn );
+            $fnUpdate =  $this->view->aResponse = $this->_pruebas->fnUpdate( 'GIM_PRUEBAS', $aDataIn );
 
             $this->view->aResponse = $fnUpdate;
 
-            $aData = $this->_alcances->GIM_ALCANCES_TIPO( $fnUpdate['ID_ALCANCE'] );
+            $aData = $this->_pruebas->GIM_PRUEBAS_TIPO( $fnUpdate['ID_PRUEBA'] );
+
+
 
             $this->view->aData = $aData;
 
@@ -96,15 +102,15 @@ class AlcancesController extends Zend_Controller_Action{
 
         $idCatalogo =  $_GET['catId'];
         
-        $table="GIM_ALCANCES";
+        $table="GIM_PRUEBAS";
             
-        $wh="ID_ALCANCE";
+        $wh="ID_PRUEBA";
 
-        $fnDelete = $this->_alcances->deleteAll( $idCatalogo, $table, $wh );
+        $fnDelete = $this->_pruebas->deleteAll( $idCatalogo, $table, $wh );
         
         $this->view->aResponse = $fnDelete;
 
-        return $this-> _redirect('/alcances/?tpo=' . $_GET['tpo'] . '&del=' . $fnDelete['status']. '');
+        return $this-> _redirect('/pruebas/?tpo=' . $_GET['tpo'] . '&del=' . $fnDelete['status']. '');
 
     }
     
