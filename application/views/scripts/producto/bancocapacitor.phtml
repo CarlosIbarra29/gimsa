@@ -64,7 +64,7 @@
 
                                         <div class="col m3 s6 text-center"> 
 
-                                            <a href="/pruebas/">
+                                            <a href="/pruebas/?tpo=<?php print $_GET['tpo'] ?>">
 
                                                 <div class="chip">
 
@@ -80,7 +80,7 @@
 
                                         <div class="col m3 s6 text-center"> 
 
-                                            <a href="/subestacion/seccionessubestacion"> 
+                                            <a href="/secciones/index?tpo=<?php print $_GET['tpo'] ?>"> 
 
                                                 <div class="chip">
 
@@ -179,7 +179,7 @@
 
 </section>
 
-<?php if( $_GET['del'] == 1 ):?>
+<?php if( @$_GET['del'] == 1 ):?>
 
     <script>
 
@@ -191,7 +191,7 @@
 
     </script>
 
-<?php elseif ( $_GET['del'] == -1):?>
+<?php elseif ( @$_GET['del'] == -1):?>
 
     <script>
 

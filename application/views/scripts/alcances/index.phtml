@@ -159,8 +159,8 @@
                                             </td>   
 
                                             <td class="center-align">
-
-                                               <a class="delete" href="/alcances/delete?catId=<?php echo $v['ID_ALCANCE'];?>&optReg=up" ><span class="warning"><i class="fa fa-2x fa-trash" style="color: red"></i></span></a>
+                                                
+                                               <a class="delete" href="/alcances/delete?catId=<?php echo $v['ID_ALCANCE'];?>&tpo=<?php echo $v['ID_TIPO'];?>" ><span class="warning"><i class="fa fa-2x fa-trash" style="color: red"></i></span></a>
  
                                             </td>
 
@@ -196,7 +196,7 @@
 
 
 
-<?php if( $_GET['del'] == 1 ):?>
+<?php if( @$_GET['del'] == 1 ):?>
 
     <script>
 
@@ -208,7 +208,7 @@
 
     </script>
 
-<?php elseif ( $_GET['del'] == -1):?>
+<?php elseif ( @$_GET['del'] == -1):?>
 
     <script>
 

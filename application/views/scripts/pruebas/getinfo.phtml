@@ -8,13 +8,13 @@
 
                 <div class="box-header with-border" style="padding: 1%">
 
-                    <h3 class="box-title">Registrar Alcance <?php print $this->aData[0]['CBO_DESCRIPCION'] ?></h3>
+                    <h3 class="box-title">Registrar Prueba <?php print $this->aData[0]['CBO_DESCRIPCION'] ?></h3>
 
                 </div>
 
                 <div class="box-body">
 
-                    <form role="form" method="POST" action="/alcances/getinfo?tpo=<?php print $_GET['tpo'] ?>" id="FormData"  enctype="multipart/form-data">
+                    <form role="form" method="POST" action="/pruebas/getinfo?tpo=<?php print $_GET['tpo'] ?>" id="FormData"  enctype="multipart/form-data">
 
                         <input type="hidden" name="optReg" value="set">
 
@@ -49,6 +49,22 @@
                                             </div>
 
                                         </div>
+
+                                        <div class="form-group">
+
+                                            <label for="inputDESCRIPCION" class="col-xs-3 col-md-3 col-sm-3">Nombre Prueba</label>
+
+                                            <div class="input-group col-xs-9 col-md-9 col-sm-9">
+
+                                                <input class="form-control required" name="PRUEBA" placeholder="Nombre Prueba" value="<?php print @$this->aData[0]['PRUEBA'] ?>">
+
+                                                <div class="form-group">
+
+                                                </div>   
+
+                                            </div>
+
+                                        </div>  
                                         
                                         <div class="form-group">
 
@@ -98,7 +114,7 @@
 
                             <button type="submit" class="green darken-2 btn-small">Guardar Datos</button>
 
-                            <a type="button" class="deep-orange darken-4 btn-small" href="/alcances/?tpo=<?php print $_GET['tpo'] ?>">Regresar</a>
+                            <a type="button" class="deep-orange darken-4 btn-small" href="/pruebas/?tpo=<?php print $_GET['tpo'] ?>">Regresar</a>
 
                         </div>
 
