@@ -120,7 +120,7 @@
 
                     </form>  
 
-                    <?php if( $this->aResponse['status'] == 1 ):?>
+                    <?php if( @$this->aResponse['status'] == 1 ):?>
 
                         <script>
 
@@ -132,7 +132,7 @@
 
                         </script>
 
-                    <?php elseif ($this->aResponse['status'] == -1):?>
+                    <?php elseif (@$this->aResponse['status'] == -1):?>
 
                         <script>
 
