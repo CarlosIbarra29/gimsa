@@ -20,6 +20,11 @@ class CotizacionController extends Zend_Controller_Action{
         }
     }//END INIT
 
+    public function cotizacionAction(){
+        $table="GIM_CATALOGO_SERVICIOS";
+        $this->view->servicios = $this->_season->GetAll($table);
+    }
+
     public function cotizacionesAction(){
 
     }
