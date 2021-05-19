@@ -1,3 +1,5 @@
+<script type="text/javascript" src="/js/ckeditor/ckeditor.js"></script>
+
 <style type="text/css">
 	#textarea1{
 		height: 140px;
@@ -107,11 +109,40 @@
 			    		<span style="font-size:15px; color: rgb(74,79,84); letter-spacing: 0.1em; font-weight: bold;">
 			    			Transformadores: 
 			    		</span>	
+			    		<div class="row">
+			    			<div class="col m12 s12">
+						        <div class="input-field col s12">
+						        	<input placeholder="" id="opuno" type="text" class="validate">
+						          	<label for="opuno"></label>
+						        </div>
+
+						        <div class="input-field col s12">
+						        	<input placeholder="" id="opdos" type="text" class="validate">
+						          	<label for="opdos"></label>
+						        </div>
+
+						        <div class="input-field col s12">
+						        	<input placeholder="" id="optres" type="text" class="validate">
+						          	<label for="optres"></label>
+						        </div>
+
+
+			    			</div>
+			    		</div>
+
 		    		</div>
 		    		<div class="col m8 s8">
 			    		<span style="font-size:15px; color: rgb(74,79,84); letter-spacing: 0.1em; font-weight: bold;">
 			    			Alcances: 
 			    		</span>
+
+			    		<div class="row">
+			    			<div class="col m12 s12">
+                				<textarea class="" id="descr" rows="10" cols="10" width="250"  name="descripcion"></textarea>
+                				<script type="text/javascript">CKEDITOR.replace( 'descr',{ height : 100,}); </script>
+			    			</div>
+			    		</div>
+
 		    		</div>
 		    	</div>
 		    </div>
