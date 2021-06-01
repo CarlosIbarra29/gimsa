@@ -1,0 +1,158 @@
+<script type="text/javascript" src="/js/ckeditor/ckeditor.js"></script>
+
+<style type="text/css">
+	#textarea1{
+		height: 140px;
+	}
+</style>
+
+<div class="row">
+    <div class="col s12 m12">
+      	<div class="card">
+	        <div class="card-content">
+	        	<div class="row">
+	        		<div class="col m2 s3">
+	        			<img src="/img/logo1.jpg" style="height: 70px;">
+	        		</div>
+	        		<div class="col m8 s6 text-center">
+	        			<div style="margin-top: 30px;">
+	        				<span style="font-size:15px; color: rgb(74,79,84); letter-spacing: 0.1em; font-weight: bold;">Certificado de acuerdo a la norma ISO 9001:2015 por Applus+</span>
+	        			</div>
+	        		</div>
+	        		<div class="col m2 s3">
+	        			
+	        		</div>
+	        	</div>
+	        	
+
+	        	<div class="row">
+	        		<div class="col m8 s6">
+					    <div class="input-field col s8">
+					    	<input id="empresa" value="Hospital Infantil Privado" type="text" class="validate">
+					      	<label for="empresa">Empresa</label>
+					    </div>
+					    <div class="input-field col s8">
+					    	<input id="cotizacion" value="Star Médica" type="text" class="validate">
+					      	<label for="cotizacion">Cotización</label>
+					    </div>
+					    <div class="input-field col s8">
+					    	<input id="direccion" value="Col. Nápoles Ciudad de México" type="text" class="validate">
+					      	<label for="direccion">Dirección</label>
+					    </div>
+					    <div class="input-field col s8">
+					    	<input id="personal" value="Lic. Marlene Arellano Gama" type="text" class="validate">
+					      	<label for="personal">Personal</label>
+					    </div>
+					    <div class="input-field col s8">
+					    	<input id="puesto" value="Ejecutivo de Compras de Insumos y Servicios" type="text" class="validate">
+					      	<label for="puesto">Puesto</label>
+					    </div>
+	        		</div>
+
+	        		<div class="col m4 s6">
+	        			<div class="text-right">
+	        				<span>
+	        					Ciudad de México, 21 de Abril de 2021
+	        				</span>
+	        			</div>
+					    <div class="input-field col s12">
+					    	<input id="codigo" value="IDC-801.2" type="text" class="validate">
+					      	<label for="codigo">Codigo</label>
+					    </div>
+					    <div class="input-field col s12">
+					    	<input id="codigo" value="IDC-801.2" type="text" class="validate">
+					      	<label for="codigo">Codigo</label>
+					    </div>
+					    <div class="input-field col s12">
+					    	<input id="tipo" value="Cotización" type="text" class="validate">
+					      	<label for="tipo">Tipo de documento</label>
+					    </div>
+					    <div class="input-field col s12">
+					    	<input id="nomenclatura" value="PS/54/2021/ALCG" type="text" class="validate">
+					      	<label for="nomenclatura">Nomenclatura</label>
+					    </div>	    
+	        		</div>
+	        	</div>
+
+
+	        </div>
+      	</div>
+    </div>
+</div>
+<!-- //  E N D    E N C A B E Z A D O -->
+
+
+<div class="row">
+    <div class="col s12 m12">
+      	<div class="card">
+		    <div class="card-content">
+		    	<div class="row">
+			    	<div class="col m4 s4">
+			    		<span style="font-size:15px; color: rgb(74,79,84); letter-spacing: 0.1em; font-weight: bold;">
+			    			Selecciona una opción: 
+			    		</span>
+			    	</div>
+			    	<div class="col m4 s4">
+				  		<div class="input-field col s12">
+				    		<select id="proveedor" name="proveedor">
+				      			<option value="0" disabled selected>* Selecciona una opción</option>
+				      			<?php foreach ($this->servicios as $key){ ?>
+				      				<option value="<?php echo $key['ID_TIPO']; ?>"><?php echo $key['NOMBRE']; ?></option>
+				      			<?php } ?>
+				    		</select>
+				  		</div>
+			    	</div>	
+		    	</div>
+
+		    	<div class="row">
+		    		<div class="col m4 s4">
+			    		<span style="font-size:15px; color: rgb(74,79,84); letter-spacing: 0.1em; font-weight: bold;">
+			    			Transformadores: 
+			    		</span>	
+			    		<div class="row">
+			    			<div class="col m12 s12">
+						        <div class="input-field col s12">
+						        	<input placeholder="" id="opuno" type="text" class="validate">
+						          	<label for="opuno"></label>
+						        </div>
+
+						        <div class="input-field col s12">
+						        	<input placeholder="" id="opdos" type="text" class="validate">
+						          	<label for="opdos"></label>
+						        </div>
+
+						        <div class="input-field col s12">
+						        	<input placeholder="" id="optres" type="text" class="validate">
+						          	<label for="optres"></label>
+						        </div>
+
+
+			    			</div>
+			    		</div>
+
+		    		</div>
+		    		<div class="col m8 s8">
+			    		<span style="font-size:15px; color: rgb(74,79,84); letter-spacing: 0.1em; font-weight: bold;">
+			    			Alcances: 
+			    		</span>
+
+			    		<div class="row">
+			    			<div class="col m12 s12">
+                				<textarea class="" id="descr" rows="10" cols="10" width="250"  name="descripcion"></textarea>
+                				<script type="text/javascript">CKEDITOR.replace( 'descr',{ height : 100,}); </script>
+			    			</div>
+			    		</div>
+
+		    		</div>
+		    	</div>
+		    </div>
+      	</div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+    	$('select').formSelect();
+  	});  
+</script>
